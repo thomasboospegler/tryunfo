@@ -16,9 +16,20 @@ class App extends React.Component {
     isSaveButtonDisabled: true,
   };
 
-  handleSaveButton = () => {};
+  handleSaveButton = (event) => {
+    event.preventDefault();
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: 'normal',
+    });
+  };
 
-  verifyButton = () => {
+  verifyIfButtonIsActive = () => {
     const {
       cardName,
       cardDescription,
@@ -87,7 +98,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ this.verifyButton() }// Passa o resultado como prop
+          isSaveButtonDisabled={ this.verifyIfButtonIsActive() }// Passa o resultado como prop
           onInputChange={ this.handleChange }
           onSaveButtonClick={ this.handleSaveButton }
         />
