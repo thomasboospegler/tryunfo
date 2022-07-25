@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
+import Card from './components/Card';
 
 class App extends React.Component {
   state = {
@@ -18,8 +19,8 @@ class App extends React.Component {
   handleChange = ({ target }) => {
     const { name, value } = target;
     if (name === 'cardTrunfo') {
-      return this.setState((anterior) => ({
-        [name]: !anterior[name],
+      return this.setState((previous) => ({
+        [name]: !previous[name],
       }));
     }
     this.setState({
@@ -57,6 +58,16 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.handleChange }
           onSaveButtonClick={ this.handleSaveButton }
+        />
+        <Card
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
         />
       </div>
     );
