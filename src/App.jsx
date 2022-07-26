@@ -15,11 +15,15 @@ class App extends React.Component {
     cardTrunfo: false,
     hasTrunfo: false,
     isSaveButtonDisabled: true,
+    cardsArr: [],
   };
 
   handleSaveButton = (event) => {
     event.preventDefault();
-    const { cardTrunfo } = this.state;
+    const { cardTrunfo, cardsArr } = this.state;
+    const cardObj = { ...this.state };
+    cardsArr.push(cardObj);
+
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -28,6 +32,7 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
+      // cardTrunfo: !cardTrunfo,
       hasTrunfo: cardTrunfo,
     });
   };
@@ -84,34 +89,54 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo } = this.state;
+      hasTrunfo,
+      cardsArr } = this.state;
 
     return (
       <main className="main">
-        <Form
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ this.verifyIfButtonIsActive() }// Passa o resultado como prop (no caso true ou false)
-          onInputChange={ this.handleChange }
-          onSaveButtonClick={ this.handleSaveButton }
-        />
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-        />
+        <section className="main-content">
+          <Form
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+            hasTrunfo={ hasTrunfo }
+            isSaveButtonDisabled={ this.verifyIfButtonIsActive() }// Passa o resultado como prop (no caso true ou false)
+            onInputChange={ this.handleChange }
+            onSaveButtonClick={ this.handleSaveButton }
+          />
+          <div className="card-container">
+            <h1>Pré-visualização</h1>
+            <Card
+              cardName={ cardName }
+              cardDescription={ cardDescription }
+              cardAttr1={ cardAttr1 }
+              cardAttr2={ cardAttr2 }
+              cardAttr3={ cardAttr3 }
+              cardImage={ cardImage }
+              cardRare={ cardRare }
+              cardTrunfo={ cardTrunfo }
+            />
+          </div>
+        </section>
+
+        <section className="cards-content">
+          { cardsArr.map((card) => (<Card
+            key={ card.cardName }
+            cardName={ card.cardName }
+            cardDescription={ card.cardDescription }
+            cardAttr1={ card.cardAttr1 }
+            cardAttr2={ card.cardAttr2 }
+            cardAttr3={ card.cardAttr3 }
+            cardImage={ card.cardImage }
+            cardRare={ card.cardRare }
+            cardTrunfo={ card.cardTrunfo }
+          />)) }
+        </section>
       </main>
     );
   }

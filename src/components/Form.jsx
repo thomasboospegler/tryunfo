@@ -72,6 +72,8 @@ class Form extends Component {
           onChange={ onInputChange }
         />
 
+        <span>Pontos restantes = 000</span>
+
         <Input
           id="image-input"
           type="text"
