@@ -1,0 +1,13 @@
+.card-container {
+  align-items: center;
+  background-color: #023031;
+  color: white;
+  display: flex;
+  flex-flow: column;
+  line-height: 200%;
+  width: 50%;
+}
+
+.card-container img {
+  width: 20%;
+}

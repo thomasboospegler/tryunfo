@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Input.css';
 
 export default class Input extends Component {
   render() {
     const { type, name, value, id, onChange, text } = this.props;
     return (
-      <label htmlFor={ id }>
+      <label htmlFor={ id } className={ id }>
         { text }
         <input
           data-testid={ id }

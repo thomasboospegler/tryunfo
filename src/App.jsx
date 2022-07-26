@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import './App.css';
 
 class App extends React.Component {
   state = {
@@ -86,7 +87,7 @@ class App extends React.Component {
       hasTrunfo } = this.state;
 
     return (
-      <div>
+      <main className="main">
         <Form
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -111,7 +112,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-      </div>
+      </main>
     );
   }
 }

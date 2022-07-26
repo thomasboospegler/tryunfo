@@ -1,0 +1,71 @@
+/* Labels */
+.name-input, .description-input, .rare-input {
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem;
+  width: 60%;
+}
+
+.attr1-input, .attr2-input, .attr3-input {
+  display: flex;
+  justify-content: center;
+  margin: 0.3rem;
+  width: 80%;
+}
+
+.image-input {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0.3rem 1rem;
+  width: 78%;
+}
+
+.trunfo-input {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  width: 100%;
+}
+
+/* Inputs */
+.name-input input, .rare-input select {
+  background-color: rgba(255, 255, 255, 0.941);
+  border: none;
+  border-radius: 3px;
+  margin: 0.3rem 1rem 0.3rem 0;
+  padding: 0.3rem;
+  width: 90%;
+}
+
+.description-input textarea {
+  background-color: rgba(255, 255, 255, 0.941);
+  border: none;
+  border-radius: 3px;
+  height: 5rem;
+  margin: 0.3rem 1rem 0.3rem 0;
+  padding: 0.3rem;
+  width: 90%;
+}
+
+.attr1-input input, .attr2-input input, .attr3-input input {
+  background-color: rgba(255, 255, 255, 0.941);
+  border: none;
+  border-radius: 3px;
+  margin: 0.3rem 1rem;
+  padding: 0.3rem;
+  width: 55%;
+}
+
+.image-input input {
+  background-color: rgba(255, 255, 255, 0.941);
+  border: none;
+  border-radius: 3px;
+  margin: 0.3rem 1rem;
+  padding: 0.3rem;
+  width: 55%;
+}
+
+.trunfo-input input {
+  background-color: rgba(255, 255, 255, 0.941);
+}

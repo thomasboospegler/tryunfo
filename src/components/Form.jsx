@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import './Form.css';
 
 class Form extends Component {
   render() {
@@ -19,7 +20,7 @@ class Form extends Component {
       onSaveButtonClick } = this.props;
 
     return (
-      <form>
+      <form className="form">
         <h2>Adicionar nova carta</h2>
 
         <Input
@@ -31,7 +32,7 @@ class Form extends Component {
           onChange={ onInputChange }
         />
 
-        <label htmlFor="description-input">
+        <label htmlFor="description-input" className="description-input">
           Descrição
           <textarea
             data-testid="description-input"
@@ -80,7 +81,7 @@ class Form extends Component {
           onChange={ onInputChange }
         />
 
-        <label htmlFor="rare-input">
+        <label htmlFor="rare-input" className="rare-input">
           Raridade
           <select
             data-testid="rare-input"
@@ -116,6 +117,7 @@ class Form extends Component {
 
         <button
           data-testid="save-button"
+          className="button-submit"
           type="submit"
           onClick={ onSaveButtonClick }
           disabled={ isSaveButtonDisabled }
