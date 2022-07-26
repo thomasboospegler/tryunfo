@@ -79,6 +79,15 @@ class App extends React.Component {
     });
   };
 
+  handleRemoveButton = (name) => {
+    const { cardsArr } = this.state;
+    const cardsParameterRemoved = cardsArr.filter((card) => card.cardName !== name);
+
+    this.setState({
+      cardsArr: cardsParameterRemoved,
+    });
+  }
+
   render() {
     const {
       cardName,
@@ -125,17 +134,26 @@ class App extends React.Component {
         </section>
 
         <section className="cards-content">
-          { cardsArr.map((card) => (<Card
-            key={ card.cardName }
-            cardName={ card.cardName }
-            cardDescription={ card.cardDescription }
-            cardAttr1={ card.cardAttr1 }
-            cardAttr2={ card.cardAttr2 }
-            cardAttr3={ card.cardAttr3 }
-            cardImage={ card.cardImage }
-            cardRare={ card.cardRare }
-            cardTrunfo={ card.cardTrunfo }
-          />)) }
+          { cardsArr.map((card) => (
+            <div key={ card.cardName }>
+              <Card
+                cardName={ card.cardName }
+                cardDescription={ card.cardDescription }
+                cardAttr1={ card.cardAttr1 }
+                cardAttr2={ card.cardAttr2 }
+                cardAttr3={ card.cardAttr3 }
+                cardImage={ card.cardImage }
+                cardRare={ card.cardRare }
+                cardTrunfo={ card.cardTrunfo }
+              />
+              <button
+                type="button"
+                data-testid="delete-button"
+                onClick={ () => this.handleRemoveButton(card.cardName) }
+              >
+                Excluir
+              </button>
+            </div>)) }
         </section>
       </main>
     );
