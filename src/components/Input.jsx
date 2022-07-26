@@ -13,6 +13,7 @@ export default class Input extends Component {
           type={ type }
           name={ name }
           value={ value }
+          checked={ value }
           onChange={ onChange }
         />
       </label>

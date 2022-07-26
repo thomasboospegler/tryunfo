@@ -62,8 +62,8 @@ class App extends React.Component {
   }
 
   handleChange = ({ target }) => {
-    const { name, value } = target;
-    if (name === 'cardTrunfo') {
+    const { name, value, type } = target;
+    if (type === 'checkbox') {
       return this.setState((previous) => ({
         [name]: !previous[name],
       }));
