@@ -6,9 +6,9 @@ class App extends React.Component {
   state = {
     cardName: '',
     cardDescription: '',
-    cardAttr1: '',
-    cardAttr2: '',
-    cardAttr3: '',
+    cardAttr1: 0,
+    cardAttr2: 0,
+    cardAttr3: 0,
     cardImage: '',
     cardRare: 'normal',
     cardTrunfo: false,
@@ -18,6 +18,7 @@ class App extends React.Component {
 
   handleSaveButton = (event) => {
     event.preventDefault();
+    const { cardTrunfo } = this.state;
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -26,6 +27,7 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
+      hasTrunfo: cardTrunfo,
     });
   };
 
@@ -43,17 +45,14 @@ class App extends React.Component {
     const conditionOne = cardName.length > 0
     && cardDescription.length > 0
     && cardImage.length > 0;
-    // console.log(`1 ${conditionOne}`);
 
     const conditionTo = (Number(cardAttr1) >= 0 && Number(cardAttr1) <= maxAtributeValue)
     && (Number(cardAttr2) >= 0 && Number(cardAttr2) <= maxAtributeValue)
     && (Number(cardAttr3) >= 0 && Number(cardAttr3) <= maxAtributeValue);
-    // console.log(`2 ${onditionTwo}`);
 
     const conditionThree = (Number(cardAttr1)
     + Number(cardAttr2)
     + Number(cardAttr3)) <= maxTotalAtributes;
-    // console.log(`3 ${conditionThree}`);
 
     if (conditionOne && conditionTo && conditionThree) {
       return false;
@@ -98,7 +97,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ this.verifyIfButtonIsActive() }// Passa o resultado como prop
+          isSaveButtonDisabled={ this.verifyIfButtonIsActive() }// Passa o resultado como prop (no caso true ou false)
           onInputChange={ this.handleChange }
           onSaveButtonClick={ this.handleSaveButton }
         />
