@@ -16,11 +16,17 @@ export default class Input extends Component {
           value={ value }
           checked={ value }
           onChange={ onChange }
+          // placeholder={ placeholder }
         />
       </label>
     );
   }
 }
+
+// Input.defaultProps = {
+//   text: PropTypes.string,
+//   placeholder: PropTypes.string,
+// };
 
 Input.propTypes = {
   name: PropTypes.string.isRequired,
@@ -29,4 +35,5 @@ Input.propTypes = {
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
+  // placeholder: PropTypes.string,
 };

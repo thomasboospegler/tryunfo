@@ -14,3 +14,8 @@
   padding: 0.4rem;
   width: 6rem;
 }
+
+.form button:disabled {
+  background: rgb(223, 223, 223);
+  color: black;
+}

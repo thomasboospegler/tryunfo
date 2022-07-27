@@ -12,19 +12,42 @@ class Card extends Component {
       cardAttr3,
       cardImage,
       cardRare,
+      hasTrunfo,
       cardTrunfo } = this.props;
 
     return (
-      <>
-        <h3 data-testid="name-card">{ cardName }</h3>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <p data-testid="description-card">{ cardDescription }</p>
-        { cardTrunfo ? <span data-testid="trunfo-card">Super Trunfo</span> : '' }
-        <p data-testid="rare-card">{ cardRare }</p>
-        <p data-testid="attr1-card">{`Attr1..... ${cardAttr1}`}</p>
-        <p data-testid="attr2-card">{`Attr2..... ${cardAttr2}`}</p>
-        <p data-testid="attr3-card">{`Attr3..... ${cardAttr3}`}</p>
-      </>
+      <div className="card-second">
+        <div className="card-third">
+          <div className="title">
+            <h3 data-testid="name-card">{ cardName }</h3>
+          </div>
+          <div className="image">
+            <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+          </div>
+          <p data-testid="description-card" id="description">{ cardDescription }</p>
+          <div className="trunfo">
+            { cardTrunfo && !hasTrunfo ? (
+              <span data-testid="trunfo-card">
+                Super Trunfo
+              </span>) : null }
+          </div>
+          <p data-testid="rare-card" id="rare">{ cardRare }</p>
+          <div className="attrs">
+            <p data-testid="attr1-card" className="attr">
+              Attr1...............................................
+              <span>{cardAttr1}</span>
+            </p>
+            <p data-testid="attr2-card" className="attr">
+              Attr2...............................................
+              <span>{cardAttr2}</span>
+            </p>
+            <p data-testid="attr3-card" className="attr">
+              Attr3...............................................
+              <span>{cardAttr3}</span>
+            </p>
+          </div>
+        </div>
+      </div>
     );
   }
 }
@@ -38,6 +61,7 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
 };
 
 export default Card;
