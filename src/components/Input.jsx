@@ -23,15 +23,12 @@ export default class Input extends Component {
   }
 }
 
-// Input.defaultProps = {
-//   text: PropTypes.string,
-//   placeholder: PropTypes.string,
-// };
-
 Input.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  value: PropTypes.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string,
+    PropTypes.bool,
+    PropTypes.number]).isRequired,
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
