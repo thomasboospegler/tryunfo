@@ -90,16 +90,11 @@ class App extends React.Component {
   handleRemoveButton = (name) => {
     const { cardsArr } = this.state;
     const cardsParameterRemoved = cardsArr.filter((card) => card.cardName !== name);
+    const hasTrunfoArr = cardsArr.some((card) => card.cardTrunfo === true);
 
     this.setState({
       cardsArr: cardsParameterRemoved,
-    }, () => {
-      const hasTrunfoArr = cardsArr.filter((card) => card.cardTrunfo === true);
-      if (hasTrunfoArr.length > 0) {
-        this.setState({
-          hasTrunfo: false,
-        });
-      }
+      hasTrunfo: !hasTrunfoArr,
     });
   }
 

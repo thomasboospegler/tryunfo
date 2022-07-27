@@ -8,30 +8,29 @@
 }
 
 .main-content h1 {
-  margin: 3rem;
-  /* margin-top: 3rem; */
   font-size: xx-large;
+  margin: 3rem;
 }
 
 .card-container h1 {
-  margin: 3rem;
   font-size: xx-large;
+  margin: 3rem;
 }
 
 .cards-content {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .cards-content h1 {
-  margin: 3rem 0 2rem;
   font-size: xx-large;
+  margin: 3rem 0 2rem;
 }
 
 .filters-container {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .filters-container select {
@@ -46,19 +45,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 90%;
-  min-height: 600px;
   margin: 2rem 0;
+  min-height: 600px;
+  width: 90%;
 }
 
 .card {
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.5rem;
 }
 
 .cards-container button {
   background-color: rgba(33, 33, 232, 0.89);
   color: aliceblue;
-  margin: 0.5rem 0 ;
+  margin: 0.5rem 0;
   padding: 0.5rem;
   width: 5rem;
 }

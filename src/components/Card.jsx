@@ -24,14 +24,19 @@ class Card extends Component {
           <div className="image">
             <img data-testid="image-card" src={ cardImage } alt={ cardName } />
           </div>
-          <p data-testid="description-card" id="description">{ cardDescription }</p>
+          <p
+            data-testid="description-card"
+            className="description"
+          >
+            { cardDescription }
+          </p>
           <div className="trunfo">
             { cardTrunfo && !hasTrunfo ? (
               <span data-testid="trunfo-card">
                 Super Trunfo
               </span>) : null }
           </div>
-          <p data-testid="rare-card" id="rare">{ cardRare }</p>
+          <p data-testid="rare-card" className="rare">{ cardRare }</p>
           <div className="attrs">
             <p data-testid="attr1-card" className="attr">
               Attr1...............................................
